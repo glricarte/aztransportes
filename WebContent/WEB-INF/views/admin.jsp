@@ -12,10 +12,7 @@
     <div align="center">
         <h1>${title}</h1>
         <h2>${message}</h2>
-        <c:if test="${pageContext.request.userPrincipal.name != null}">
-            <h2>Welcome : ${pageContext.request.userPrincipal.name} |
-                <a href="/<c:url value="/logout" />" > Logout</a></h2> 
-    </c:if>              
+                 
     </div>
 </body>
 </html>
