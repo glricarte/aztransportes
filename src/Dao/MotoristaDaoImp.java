@@ -20,7 +20,7 @@ return (Motorista) session.load(Motorista.class, id);
 public List<Motorista> list() {
 Session session = HibernateUtil.getSessionFactory().openSession();
 Transaction t = session.beginTransaction();
-List lista = session.createQuery("from motorista").list();
+List lista = session.createQuery("from Motorista").list();
 t.commit();
 return lista;
 }

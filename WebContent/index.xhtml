@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+        <title>Gerenciador de Motoristas</title>
+        <link type="text/css" rel="stylesheet" href="dot-luv/skin.css" />
+    </h:head>
+    <h:body>
+               <p:layout fullPage="true">
+            <p:layoutUnit position="left" width="200" header="Atividades" resizable="true" closable="true" collapsible="true">
+                <h:form prependId="false">
+                    <p:commandLink value="Novo Motorista" actionListener="#{motoristaController.prepararAdicionarMotorista}" update="infosMotorista" oncomplete="dialogGerMotorista.show()"/>
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="center">
+                <h1>Gerenciador de Motoristas</h1>
+                <br/>
+                <h:form prependId="false">
+                    <p:dataTable id="tabela" var="motorista" value="#{motoristaController.listarMotoristas}">
+                       <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Nome"/>
+                </f:facet>
+                <h:outputText value="#{motorista.nome}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="TEL"/>
+                </f:facet>
+                <h:outputText value="#{motorista.tel}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="CPF"/>
+                </f:facet>
+                <h:outputText value="#{motorista.cpf}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="SENHA"/>
+                </f:facet>
+                <h:outputText value="#{motorista.senha}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="ATIVO"/>
+                </f:facet>
+                <h:outputText value="#{motorista.ativo}"/>
+            </h:column>
+           
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Alterar"/>
+                </f:facet>
+                <h:form>
+                    <h:commandButton action="#{motoristaController.prepararAlterarMotorista}" value="Alterar"/>
+                    </h:form>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Excluir"/>
+                </f:facet>
+                <h:form>
+                    <h:commandButton action="#{motoristaController.excluirMotorista}" value="Excluir"/>
+                    </h:form>
+            </h:column>
+                    </p:dataTable>
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+ 
+        <p:dialog header="Gerencia de Motorista" widgetVar="dialogGerMotorista"  resizable="false" modal="true" showEffect="slide" width="500">
+            <h:form prependId="false">
+                <h:panelGrid id="infosMotorista" columns="2" style="margin-bottom:10px">
+ 
+                    <h:outputLabel for="nome" value="Nome:" />
+                    <h:inputText value="#{motoristaController.motorista.nome}"/>
+ 
+                    <h:outputLabel for="tel" value="Telefone:" />
+                   <h:inputText value="#{motoristaController.motorista.tel}"/>
+ 
+                    <h:outputLabel for="cpf" value="C.P.F:" />
+                   <h:inputText value="#{motoristaController.motorista.cpf}"/>
+                   
+                    <h:outputLabel for="senha" value="Senha:" />
+                    <h:inputText value="#{motoristaController.motorista.senha}"/>
+ 
+                    <h:outputLabel for="ativo" value="Ativo:" />
+                    <h:inputText value="#{motoristaController.motorista.ativo}"/>
+ 
+                   
+                    <p:commandButton update="tabela" oncomplete="dialogGerMotorista.hide();" actionListener="#{motoristaController.adicionarMotorista}" value="Inserir Motorista"/>
+                    <p:commandButton update="tabela" oncomplete="dialogGerMotorista.hide();" actionListener="#{motoristaController.alterarMotorista}" value="Alterar Motorista"/>
+ 
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
+ 
+    </h:body>
+</html>
