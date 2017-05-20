@@ -16,11 +16,11 @@ import javax.faces.model.ListDataModel;
 public class MotoristaController {
  
 private Motorista motorista;
-private DataModel listaMotoristas;
+private DataModel<Motorista> listaMotoristas;
  
-public DataModel getListarMotoristas() {
+public DataModel<Motorista> getListarMotoristas() {
 List<Motorista> lista = new MotoristaDaoImp().list();
-listaMotoristas = new ListDataModel(lista);
+listaMotoristas = new ListDataModel<Motorista>(lista);
 return listaMotoristas;
 }
  

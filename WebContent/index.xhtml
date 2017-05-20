@@ -7,7 +7,6 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
         <title>Gerenciador de Motoristas</title>
-        <link type="text/css" rel="stylesheet" href="dot-luv/skin.css" />
     </h:head>
     <h:body>
                <p:layout fullPage="true">
@@ -78,19 +77,19 @@
                 <h:panelGrid id="infosMotorista" columns="2" style="margin-bottom:10px">
  
                     <h:outputLabel for="nome" value="Nome:" />
-                    <h:inputText value="#{motoristaController.motorista.nome}"/>
+                    <h:inputText id="nome" value="#{motoristaController.motorista.nome}"/>
  
                     <h:outputLabel for="tel" value="Telefone:" />
-                   <h:inputText value="#{motoristaController.motorista.tel}"/>
+                   <h:inputText id="tel" value="#{motoristaController.motorista.tel}"/>
  
                     <h:outputLabel for="cpf" value="C.P.F:" />
-                   <h:inputText value="#{motoristaController.motorista.cpf}"/>
+                   <h:inputText id="cpf" value="#{motoristaController.motorista.cpf}"/>
                    
                     <h:outputLabel for="senha" value="Senha:" />
-                    <h:inputText value="#{motoristaController.motorista.senha}"/>
+                    <h:inputText id="senha" value="#{motoristaController.motorista.senha}"/>
  
                     <h:outputLabel for="ativo" value="Ativo:" />
-                    <h:inputText value="#{motoristaController.motorista.ativo}"/>
+                    <h:inputText id="ativo" value="#{motoristaController.motorista.ativo}"/>
  
                    
                     <p:commandButton update="tabela" oncomplete="dialogGerMotorista.hide();" actionListener="#{motoristaController.adicionarMotorista}" value="Inserir Motorista"/>

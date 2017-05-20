@@ -18,6 +18,7 @@ if (sessionFactory == null) {
 try {
 // Create the SessionFactory from standard (hibernate.cfg.xml)
 // config file.
+@SuppressWarnings("deprecation")
 AnnotationConfiguration ac = new AnnotationConfiguration();
 ac.addAnnotatedClass(Motorista.class);
 sessionFactory = ac.configure().buildSessionFactory();

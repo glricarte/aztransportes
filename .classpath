@@ -12,29 +12,60 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_101/lib/ant-javafx.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_101/lib/dt.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_101/lib/javafx-mx.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_101/lib/jconsole.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_101/lib/packager.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_101/lib/sa-jdi.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_101/lib/tools.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0">
-		<attributes>
-			<attribute name="owner.project.facets" value="jst.web"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/primefaces-6.0.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JSF 2.2 (Mojarra 2.2.0)">
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_101/lib/ant-javafx.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-			<attribute name="owner.project.facets" value="jst.jsf"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_101/lib/dt.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_101/lib/javafx-mx.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_101/lib/jconsole.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_101/lib/packager.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_101/lib/sa-jdi.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_101/lib/tools.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api-2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_111/javafx-src.zip">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Java/jdk1.8.0_111/src.zip">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ant-javafx.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/dt.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javafx-mx.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jconsole.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/packager.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/sa-jdi.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/tools.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

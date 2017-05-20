@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
+@SuppressWarnings("unused")
 @Entity
 public class Motorista implements Serializable {
 	
