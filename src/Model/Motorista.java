@@ -2,12 +2,12 @@ package Model;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 
 @SuppressWarnings("unused")
@@ -22,6 +22,8 @@ private String tel;
 private String cpf;
 private String senha;
 private boolean ativo;
+
+
 
 
 public Motorista(){
@@ -85,6 +87,9 @@ public boolean isAtivo() {
 public void setAtivo(boolean ativo) {
 	this.ativo = ativo;
 }
+
+
+
 
 
 }

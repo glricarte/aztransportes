@@ -3,6 +3,7 @@ import Dao.MotoristaDao;
 import Dao.MotoristaDaoImp;
 import Model.Motorista;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -13,7 +14,7 @@ import javax.faces.model.ListDataModel;
 
 @ManagedBean
 @SessionScoped
-public class MotoristaController {
+public class MotoristaController  implements Serializable {
  
 private Motorista motorista;
 private DataModel<Motorista> listaMotoristas;
