@@ -2,12 +2,22 @@ package Model;
 
 
 import java.io.Serializable;
-import java.util.List;
 
+
+
+
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+
 
 
 @SuppressWarnings("unused")
@@ -22,7 +32,10 @@ private String tel;
 private String cpf;
 private String senha;
 private boolean ativo;
-
+@OneToMany(cascade=CascadeType.ALL)
+private Set<Semana> semanas;
+@OneToMany(cascade=CascadeType.ALL)
+private Set<Resumo> resumos;
 
 
 
@@ -87,6 +100,23 @@ public boolean isAtivo() {
 public void setAtivo(boolean ativo) {
 	this.ativo = ativo;
 }
+
+public Set<Semana> getSemanas() {
+	return semanas;
+}
+
+public void setSemanas(Set<Semana> semanas) {
+	this.semanas = semanas;
+}
+
+public Set<Resumo> getResumos() {
+	return resumos;
+}
+
+public void setResumos(Set<Resumo> resumos) {
+	this.resumos = resumos;
+}
+
 
 
 

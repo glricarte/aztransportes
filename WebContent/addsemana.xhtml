@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Adicionar Semana</title>
+	<link type="text/css" rel="stylesheet"
+		href="/project/faces/javax.faces.resource/theme.css?ln=primefaces-glass-x" />
+</h:head>
+<h:body>
+
+	<p:layout fullPage="true">
+		<p:layoutUnit position="west" width="200" header="Atividades"
+			resizable="true" closable="true" collapsible="true">
+			<h:form>
+				<p:commandLink value="Nova Semana"
+					actionListener="#{semanaController.prepararAdicionarSemana}"
+					update=":addmoto:infosSemana"
+					oncomplete="PF('dialogGerSemana').show();" />
+			</h:form>
+			<h:outputLink
+				value="#{facesContext.externalContext.requestContextPath}/j_spring_security_logout">
+				<h:outputText value="Sair" />
+			</h:outputLink>
+		</p:layoutUnit>
+
+		<p:layoutUnit position="center">
+			<h1>Depositos</h1>
+
+			<br />
+			<h:form id="tab1">
+				<p:dataTable id="tabela1" var="resumo1"
+					value="#{resumoController.listarResumos}">
+					<p:column headerText="Deposito">
+						<h:outputText value="#{resumo1.deposito}" />
+					</p:column>
+					<p:column headerText="Dívida">
+						<h:outputText value="#{resumo1.divida}" />
+					</p:column>
+					<p:column headerText="Semana">
+						<h:outputText value="#{resumo1.semana}" />
+					</p:column>
+					<p:column headerText="Devolução">
+						<h:outputText value="#{resumo1.devolucao}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="Alterar" />
+						</f:facet>
+						<p:commandButton
+							actionListener="#{semanaController.prepararAlterarResumo}"
+							value="Alterar" update=":addmoto:infosSemana"
+							oncomplete="PF('dialogGerSemana').show();" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="Excluir" />
+							</f:facet>
+										</p:column>
+				</p:dataTable>
+			</h:form>
+			<h1>Semana</h1>
+
+			<br />
+
+			<h:form id="tab2">
+				<p:dataTable id="tabela2" var="resumo2"
+					value="#{semanaController.listarSemanas}">
+					<p:column headerText="Produção">
+						<h:outputText value="#{resumo2.producao}" />
+					</p:column>
+					<p:column headerText="Aluguel">
+						<h:outputText value="#{resumo2.aluguel}" />
+					</p:column>
+					<p:column headerText="Desconto">
+						<h:outputText value="#{resumo2.desconto}" />
+					</p:column>
+					<p:column headerText="Batida">
+						<h:outputText value="#{resumo2.batida}" />
+					</p:column>
+					<p:column headerText="Multa">
+						<h:outputText value="#{resumo2.multa}" />
+					</p:column>
+					<p:column headerText="Adiantamento">
+						<h:outputText value="#{resumo2.adiantamento}" />
+					</p:column>
+					<p:column headerText="TOTAL">
+						<h:outputText value="#{resumo2.semana}" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="Alterar" />
+						</f:facet>
+						<p:commandButton
+							actionListener="#{semanaController.prepararAlterarSemana}"
+							value="Alterar" update=":addmoto:infosSemana"
+							oncomplete="PF('dialogGerSemana').show();" />
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="Excluir" />
+										</f:facet>
+										</p:column>
+				</p:dataTable>
+			</h:form>
+		</p:layoutUnit>
+	</p:layout>
+
+	
+	
+
+
+
+</h:body>
+</html>

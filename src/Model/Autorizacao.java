@@ -4,12 +4,15 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Autorizacao implements Serializable {
 
 	@Id
 	private String nome;
+	
 
 	public Autorizacao() {
 	}
@@ -22,4 +25,8 @@ public class Autorizacao implements Serializable {
 		this.nome = nome;
 	}
 
+
+	
+	
+	
 }

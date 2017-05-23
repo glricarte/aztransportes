@@ -8,6 +8,9 @@
 
     <http auto-config="true" use-expressions="true">
      <intercept-url pattern="/index*" access="hasRole('ROLE_ADMIN')" />
+          <intercept-url pattern="/dev*" access="hasRole('ROLE_ADMIN')" />
+         <intercept-url pattern="/add*" access="hasRole('ROLE_ADMIN')" />
+         
              <form-login login-page="/login.xhtml" login-processing-url="/login" authentication-failure-url="/login.xhtml?erro=true"/>
    <csrf disabled="true"/>
     </http>
