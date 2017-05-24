@@ -2,6 +2,7 @@ package Controller;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
@@ -22,7 +23,12 @@ public class SemanaController  implements Serializable {
 private Semana semana;
 private DataModel<Semana> listaSemanas;
 String username;
-
+@PostConstruct
+public void init() {
+    //initialize the data here
+    this.semana = new Semana();
+    //similar for other fields
+}
 public DataModel<Semana> getListarSemanas() {
 	username=((SecurityContext) SecurityContextHolder.getContext()).getAuthentication().getName();
 List<Semana> lista = new SemanaDaoImp().list(username);

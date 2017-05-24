@@ -31,7 +31,7 @@ public class SemanaDaoImp implements SemanaDao {
 		Transaction t = session.beginTransaction();
 		Criteria cr = session.createCriteria(Resumo.class);
 		
-		Query query = session.createQuery("select motorista.cpf from Semana where username = :nome");
+		Query query = session.createQuery("select motorista.cpf from Usuario where username = :nome");
 		query.setParameter("nome", sql);
 	
 		cr.add(Restrictions.like("motorista.cpf", (String) query.uniqueResult(), MatchMode.EXACT));

@@ -1,18 +1,14 @@
 package Model;
 
 import java.io.Serializable;
-
-
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 
 @SuppressWarnings("unused")
@@ -22,7 +18,7 @@ public class Semana implements Serializable {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private long id;
-@ManyToOne
+@ManyToOne(optional = false)
 @JoinColumn(name = "cpf", referencedColumnName = "cpf")
 private Motorista motorista;
 private String producao ;
@@ -35,12 +31,11 @@ private String semana;
 private Date salvo;
 
 
-public Semana(long id,Motorista motorista, String producao,
+public Semana(long id, String producao,
 		String aluguel, String desconto,String batida,
 		String multa,String adiantamento, String semana, Date salvo) {
 	
 this.id = id;
-this.motorista=motorista;
 this.producao = producao;
 this.aluguel = aluguel;
 this.desconto = desconto;

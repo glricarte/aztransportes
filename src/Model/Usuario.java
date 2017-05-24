@@ -2,6 +2,7 @@ package Model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,20 +19,19 @@ public class Usuario implements Serializable {
    @Id
    private String username;
    @OneToOne(cascade = CascadeType.ALL)
-   @JoinColumn(name="cpf",referencedColumnName = "cpf")
+   @JoinColumn(name="CPF", referencedColumnName = "CPF")
    private Motorista motorista;
    private String password;
    @Column(name = "enable", columnDefinition = "BOOLEAN")
    private boolean enable;
    @OneToMany
-   private List<Autorizacao> autorizacoes;
+   private Set<Autorizacao> autorizacoes;
 
    public Usuario() {
    }
  
-   public Usuario(String username, Motorista motorista, String password, boolean enable) {
+   public Usuario(String username,String password, boolean enable) {
 	   this.username=username;
-	   this.motorista=motorista;
 	   this.password=password;
 	   this.enable=enable;
    }
@@ -62,11 +62,13 @@ public void setEnable(boolean enable) {
 	this.enable = enable;
 }
 
-public List<Autorizacao> getAutorizacoes() {
+
+
+public Set<Autorizacao> getAutorizacoes() {
 	return autorizacoes;
 }
 
-public void setAutorizacoes(List<Autorizacao> autorizacoes) {
+public void setAutorizacoes(Set<Autorizacao> autorizacoes) {
 	this.autorizacoes = autorizacoes;
 }
 

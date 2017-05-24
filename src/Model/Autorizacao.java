@@ -12,7 +12,9 @@ public class Autorizacao implements Serializable {
 
 	@Id
 	private String nome;
-	
+	public Autorizacao(String nome){
+		this.nome=nome;
+	}
 
 	public Autorizacao() {
 	}

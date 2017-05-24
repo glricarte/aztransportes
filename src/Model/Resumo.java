@@ -1,19 +1,14 @@
 package Model;
 
 import java.io.Serializable;
-
-
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 
 @SuppressWarnings("unused")
@@ -23,20 +18,26 @@ public class Resumo implements Serializable {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private long id;
-@ManyToOne
-@JoinColumn(name = "cpf", referencedColumnName = "cpf")
-private Motorista motorista;
 private String devolucao ;
 private String divida;
 private String semana;
 private String deposito;
 private Date salvo;
+@ManyToOne(optional = false)
+@JoinColumn(name = "cpf", referencedColumnName = "cpf")
+private Motorista motorista;
 
+public Motorista getMotorista() {
+	return motorista;
+}
 
-public Resumo(long id,Motorista motorista,  String devolucao,
+public void setMotorista(Motorista motorista) {
+	this.motorista = motorista;
+}
+
+public Resumo(long id, String devolucao,
 		String divida, String semana, String deposito, Date salvo) {
 this.id = id;
-this.motorista=motorista;
 this.devolucao = devolucao;
 this.divida = divida;
 this.semana = semana;
@@ -107,13 +108,6 @@ public void setSalvo(Date salvo) {
 }
 
 
-public Motorista getMotorista() {
-	return motorista;
-}
-
-public void setMotorista(Motorista motorista) {
-	this.motorista = motorista;
-}
 
 }
 

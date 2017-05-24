@@ -28,5 +28,34 @@ public class main {
 			System.err.println("Initial SessionFactory creation failed." + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
+
+		Motorista moto1 = new Motorista("00","00","00","00",true);
+		Usuario user1 = new Usuario("00","00",true); 
+		Autorizacao aut1 = new Autorizacao("ROLE_ADMIN");
+		
+	    user1.
+	        student1.setUniversity(university);
+	        student2.setUniversity(university);
+	        student3.setUniversity(university);
+	 
+	 
+	        Session session = HibernateUtil.getSessionFactory().openSession();
+	        session.beginTransaction();
+	 
+	        session.persist(university);
+	        session.persist(student1);
+	        session.persist(student2);
+	        session.persist(student3);
+	         
+	        List<Student> students = (List<Student>)session.createQuery("from Student ").list();
+	        for(Student s: students){
+	            System.out.println("Details : "+s);
+	            System.out.println("Student University Details: "+s.getUniversity());
+	        }
+	         
+	        session.getTransaction().commit();
+	        session.close();  
+	    }
+		
 	}
 }

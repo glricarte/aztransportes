@@ -16,9 +16,13 @@
 		<p:layoutUnit position="west" width="200" header="Atividades"
 			resizable="true" closable="true" collapsible="true">
 			<h:form>
-				<p:commandLink value="Nova Semana"
+				<p:commandLink value="Novo Motorista"
+					actionListener="#{motoristaController.prepararAdicionarMotorista}"
+					update=":addmoto:infosMotorista"
+					oncomplete="PF('dialogGerMotorista').show();" />
+				<p:commandLink value="Novo Semana"
 					actionListener="#{semanaController.prepararAdicionarSemana}"
-					update=":addmoto:infosSemana"
+					update=":addsem:infosSemana"
 					oncomplete="PF('dialogGerSemana').show();" />
 			</h:form>
 			<h:outputLink
@@ -51,9 +55,9 @@
 							<h:outputText value="Alterar" />
 						</f:facet>
 						<p:commandButton
-							actionListener="#{semanaController.prepararAlterarResumo}"
+							actionListener="#{resumoController.prepararAlterarResumo}"
 							value="Alterar" update=":addmoto:infosSemana"
-							oncomplete="PF('dialogGerSemana').show();" />
+							oncomplete="PF('dialogGerResumo').show();" />
 					</p:column>
 					<p:column>
 						<f:facet name="header">
@@ -109,9 +113,87 @@
 		</p:layoutUnit>
 	</p:layout>
 
-	
-	
+<p:dialog header="Gerencia de Motorista" widgetVar="dialogGerMotorista"
+		resizable="false" modal="true" showEffect="slide" width="500">
+		<h:form id="addmoto">
+			<h:panelGrid id="infosMotorista" columns="2"
+				style="margin-bottom:10px">
 
+				<h:outputLabel for="nome" value="Nome:" />
+				<h:inputText id="nome" value="#{motoristaController.motorista.nome}" />
+
+				<h:outputLabel for="tel" value="Telefone:" />
+				<h:inputText id="tel" value="#{motoristaController.motorista.tel}" />
+
+				<h:outputLabel for="cpf" value="C.P.F:" />
+				<h:inputText id="cpf" value="#{motoristaController.motorista.cpf}" />
+
+				<h:outputLabel for="senha" value="Senha:" />
+				<h:inputText id="senha"
+					value="#{motoristaController.motorista.senha}" />
+
+				<h:outputLabel for="ativo" value="Ativo:" />
+				<h:inputText id="ativo"
+					value="#{motoristaController.motorista.ativo}" />
+
+
+				<p:commandButton update=""
+					oncomplete="PF('dialogGerMotorista').hide();"
+					actionListener="#{motoristaController.adicionarMotorista}"
+					value="Inserir Motorista" />
+				<p:commandButton update=""
+					oncomplete="PF('dialogGerMotorista').hide();"
+					actionListener="#{motoristaController.alterarMotorista}"
+					value="Alterar Motorista" />
+
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>	
+	
+<p:dialog header="Gerencia de Semana" widgetVar="dialogGerSemana"
+		resizable="false" modal="true" showEffect="slide" width="500">
+		<h:form id="addsem">
+			<h:panelGrid id="infosSemana" columns="2"
+				style="margin-bottom:10px">
+
+			
+				<h:outputLabel for="producao" value="Produção:" />
+				<h:inputText id="producao" value="#{semanaController.semana.producao}" />
+
+				<h:outputLabel for="aluguel" value="Aluguel:" />
+				<h:inputText id="aluguel" value="#{semanaController.semana.aluguel}" />
+
+				<h:outputLabel for="desconto" value="Desconto:" />
+				<h:inputText id="desconto" value="#{semanaController.semana.desconto}" />
+
+				<h:outputLabel for="batida" value="Batida:" />
+				<h:inputText id="batida"
+					value="#{semanaController.semana.batida}" />
+
+				<h:outputLabel for="multa" value="Multa:" />
+				<h:inputText id="multa"
+					value="#{semanaController.semana.multa}" />
+				<h:outputLabel for="adiantamento" value="Adiantamento:" />
+				<h:inputText id="adiantamento"
+					value="#{semanaController.semana.adiantamento}" />
+				<h:outputLabel for="TOTAL" value="TOTAL:" />
+				<h:inputText id="TOTAL"
+					value="#{semanaController.semana.semana}" />
+
+
+
+				<p:commandButton update=":tab2:tabela2"
+					oncomplete="PF('dialogGerSemana').hide();"
+					actionListener="#{semanaController.adicionarSemana}"
+					value="Inserir Semana" />
+				<p:commandButton update=":tab2:tabela2"
+					oncomplete="PF('dialogGerSemana').hide();"
+					actionListener="#{semanaController.alterarSemana}"
+					value="Alterar Semana" />
+
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
 
 
 </h:body>

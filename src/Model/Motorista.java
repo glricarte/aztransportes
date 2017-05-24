@@ -9,7 +9,9 @@ import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,13 +31,10 @@ public class Motorista implements Serializable {
 private long id;
 private String nome;
 private String tel;
+@Column(name="cpf")
 private String cpf;
 private String senha;
 private boolean ativo;
-@OneToMany(cascade=CascadeType.ALL)
-private Set<Semana> semanas;
-@OneToMany(cascade=CascadeType.ALL)
-private Set<Resumo> resumos;
 
 
 
@@ -43,7 +42,7 @@ public Motorista(){
 	
 }
 
-public Motorista(long id, String nome, String tel,
+public Motorista(String nome, String tel,
 		String cpf, String senha, boolean ativo) {
 this.id = id;
 this.nome = nome;
@@ -101,21 +100,6 @@ public void setAtivo(boolean ativo) {
 	this.ativo = ativo;
 }
 
-public Set<Semana> getSemanas() {
-	return semanas;
-}
-
-public void setSemanas(Set<Semana> semanas) {
-	this.semanas = semanas;
-}
-
-public Set<Resumo> getResumos() {
-	return resumos;
-}
-
-public void setResumos(Set<Resumo> resumos) {
-	this.resumos = resumos;
-}
 
 
 
