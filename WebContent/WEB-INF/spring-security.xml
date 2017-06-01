@@ -7,11 +7,18 @@
     http://www.springframework.org/schema/security/spring-security-4.0.xsd">
 
     <http auto-config="true" use-expressions="true">
-     <intercept-url pattern="/index*" access="hasRole('ROLE_ADMIN')" />
+     <intercept-url pattern="/ini*" access="hasRole('ROLE_ADMIN')" />
           <intercept-url pattern="/dev*" access="hasRole('ROLE_ADMIN')" />
          <intercept-url pattern="/add*" access="hasRole('ROLE_ADMIN')" />
          
-             <form-login login-page="/login.xhtml" login-processing-url="/login" authentication-failure-url="/login.xhtml?erro=true"/>
+             <form-login login-page="/login.xhtml" 
+             default-target-url="/inicio"
+            always-use-default-target="true"     
+             login-processing-url="/login" authentication-failure-url="/login.xhtml?erro=true"/>
+
+<logout invalidate-session="true" logout-success-url="/login.xhtml" logout-url="/logout"/>
+
+
    <csrf disabled="true"/>
     </http>
 

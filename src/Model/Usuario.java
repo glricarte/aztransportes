@@ -1,6 +1,8 @@
 package Model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -9,8 +11,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
 
 
 @Entity
@@ -24,8 +30,8 @@ public class Usuario implements Serializable {
    private String password;
    @Column(name = "enable", columnDefinition = "BOOLEAN")
    private boolean enable;
-   @OneToMany
-   private Set<Autorizacao> autorizacoes;
+   @ManyToMany(cascade = CascadeType.ALL)
+   private Collection<Autorizacao> autorizacoes;
 
    public Usuario() {
    }
@@ -61,26 +67,26 @@ public boolean isEnable() {
 public void setEnable(boolean enable) {
 	this.enable = enable;
 }
-
-
-
-public Set<Autorizacao> getAutorizacoes() {
-	return autorizacoes;
-}
-
-public void setAutorizacoes(Set<Autorizacao> autorizacoes) {
-	this.autorizacoes = autorizacoes;
-}
-
 public Motorista getMotorista() {
 	return motorista;
 }
 
-public void setMotorista(Motorista motorista) {
-	this.motorista = motorista;
+public void addAutorizacao(Autorizacao aut) {
+      if (autorizacoes==null) {
+          autorizacoes = new ArrayList<Autorizacao>();
+      }
+      if (!autorizacoes.contains(aut)) {
+          autorizacoes.add(aut);
+      }
+  }
+
+public Collection<Autorizacao> getAutorizacoes() {
+	return autorizacoes;
 }
 
-   
+public void setMotorista(Motorista motorista) {
+	this.motorista = motorista;
+}  
 
 }
 

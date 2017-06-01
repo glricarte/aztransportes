@@ -29,11 +29,12 @@ public void init() {
     this.semana = new Semana();
     //similar for other fields
 }
-public DataModel<Semana> getListarSemanas() {
-	username=((SecurityContext) SecurityContextHolder.getContext()).getAuthentication().getName();
-List<Semana> lista = new SemanaDaoImp().list(username);
+public List<Semana> getListarSemanas(String semana) {
+
+username=((SecurityContext) SecurityContextHolder.getContext()).getAuthentication().getName();
+List<Semana> lista = new SemanaDaoImp().list(username,semana);
 listaSemanas = new ListDataModel<Semana>(lista);
-return listaSemanas;
+return lista;
 }
  
 public Semana getSemana() {

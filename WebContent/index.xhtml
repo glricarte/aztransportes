@@ -5,106 +5,31 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<title>Gerenciador de Motoristas</title>
-<link type="text/css" rel="stylesheet" href="/project/faces/javax.faces.resource/theme.css?ln=primefaces-glass-x" /></h:head>
+<h:head>    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
+    <title><ui:insert name="title">SISTEMA</ui:insert></title>    
+	<link type="text/css" rel="stylesheet"
+		href="/project/faces/javax.faces.resource/theme.css?ln=primefaces-glass-x" />
+</h:head>
+
 <h:body>
+    <div class="header">
+        <ui:insert name="header">
+            <ui:include src="/Header.xhtml"></ui:include>
+        </ui:insert>
+    </div>
 
-	<p:layout fullPage="true">
-		<p:layoutUnit position="west" width="200" header="Atividades"
-			resizable="true" closable="true" collapsible="true">
-			<h:form>
-				<p:commandLink value="Novo Motorista"
-					actionListener="#{motoristaController.prepararAdicionarMotorista}"
-					update=":addmoto:infosMotorista"
-					oncomplete="PF('dialogGerMotorista').show();" />
-			</h:form>
-			 <h:outputLink value="#{facesContext.externalContext.requestContextPath}/j_spring_security_logout">
-                    <h:outputText value="Sair"/>
-                </h:outputLink>
-		</p:layoutUnit>
+    <div class="containerContent">
+        <ui:insert name="content">
+        <ui:include src="/dev.xhtml"></ui:include>
+        </ui:insert>        
+    </div>
 
-		<p:layoutUnit position="center">
-			<h1>Gerenciador de Motoristas</h1>
-		  <h:outputText value="Bem vindo #{usuarioController.usuario.username}:"/>
-			<br />
-			<h:form id="tab">
-				<p:dataTable id="tabela" var="motorista"
-					value="#{motoristaController.listarMotoristas}">
-					<p:column headerText="Nome">
-						<h:outputText value="#{motorista.nome}" />
-					</p:column>
-					<p:column headerText="Tel">
-						<h:outputText value="#{motorista.tel}" />
-					</p:column>
-					<p:column headerText="C.P.F">
-						<h:outputText value="#{motorista.cpf}" />
-					</p:column>
-					<p:column headerText="Senha">
-						<h:outputText value="#{motorista.senha}" />
-					</p:column>
-					<p:column headerText="Ativo">
-						<h:outputText value="#{motorista.ativo}" />
-					</p:column>
-
-					<p:column>
-						<f:facet name="header">
-							<h:outputText value="Alterar" />
-						</f:facet>
-						<p:commandButton
-							actionListener="#{motoristaController.prepararAlterarMotorista}"
-							value="Alterar" update=":addmoto:infosMotorista"
-							oncomplete="PF('dialogGerMotorista').show();" />
-					</p:column>
-					<p:column>
-						<f:facet name="header">
-							<h:outputText value="Excluir" />
-						</f:facet>
-						<h:commandLink action="#{motoristaController.excluirMotorista}"
-							value="Excluir" />
-					</p:column>
-				</p:dataTable>
-			</h:form>
-		</p:layoutUnit>
-	</p:layout>
-
-
-	<p:dialog header="Gerencia de Motorista" widgetVar="dialogGerMotorista"
-		resizable="false" modal="true" showEffect="slide" width="500">
-		<h:form id="addmoto">
-			<h:panelGrid id="infosMotorista" columns="2"
-				style="margin-bottom:10px">
-
-				<h:outputLabel for="nome" value="Nome:" />
-				<h:inputText id="nome" value="#{motoristaController.motorista.nome}" />
-
-				<h:outputLabel for="tel" value="Telefone:" />
-				<h:inputText id="tel" value="#{motoristaController.motorista.tel}" />
-
-				<h:outputLabel for="cpf" value="C.P.F:" />
-				<h:inputText id="cpf" value="#{motoristaController.motorista.cpf}" />
-
-				<h:outputLabel for="senha" value="Senha:" />
-				<h:inputText id="senha"
-					value="#{motoristaController.motorista.senha}" />
-
-				<h:outputLabel for="ativo" value="Ativo:" />
-				<h:inputText id="ativo"
-					value="#{motoristaController.motorista.ativo}" />
-
-
-				<p:commandButton update=":tab:tabela"
-					oncomplete="PF('dialogGerMotorista').hide();"
-					actionListener="#{motoristaController.adicionarMotorista}"
-					value="Inserir Motorista" />
-				<p:commandButton update=":tab:tabela"
-					oncomplete="PF('dialogGerMotorista').hide();"
-					actionListener="#{motoristaController.alterarMotorista}"
-					value="Alterar Motorista" />
-
-			</h:panelGrid>
-		</h:form>
-	</p:dialog>
-
+    <div class="containerFooter">
+        <ui:insert name="footer">
+            <ui:include src="/Footer.xhtml"></ui:include>
+        </ui:insert>
+    </div>
 </h:body>
+
 </html>

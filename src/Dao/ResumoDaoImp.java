@@ -2,6 +2,8 @@ package Dao;
 
 import java.util.List;
 
+import javax.faces.model.DataModel;
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -10,6 +12,7 @@ import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 import Model.Resumo;
+import Model.Semana;
 
 public class ResumoDaoImp implements ResumoDao {
 
@@ -25,17 +28,21 @@ public class ResumoDaoImp implements ResumoDao {
 		return (Resumo) session.load(Resumo.class, id);
 	}
 
-	public List<Resumo> list(String sql) {
+	public List<Resumo> list(String sql,List<Semana> semana) {
 
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction t = session.beginTransaction();
-		Criteria cr = session.createCriteria(Resumo.class);
+		Criteria cr = session.createCriteria(Resumo.class,"sem");
 		
 		Query query = session.createQuery("select motorista.cpf from Usuario where username = :nome");
 		query.setParameter("nome", sql);
 	
-		cr.add(Restrictions.like("motorista.cpf", (String) query.uniqueResult(), MatchMode.EXACT));
-		List lista = cr.list();
+		cr.add(Restrictions.like("sem.motorista.cpf", (String) query.uniqueResult(), MatchMode.EXACT));
+		cr.add(Restrictions.in("sem.detalhes", semana));
+		
+		List<Resumo> lista = cr.list();
+		
+		
 	
 		return lista;
 	}

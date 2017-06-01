@@ -18,11 +18,11 @@
 			<h:form>
 				<p:commandLink value="Novo Motorista"
 					actionListener="#{motoristaController.prepararAdicionarMotorista}"
-					update=":addmoto:infosMotorista"
+					update=""
 					oncomplete="PF('dialogGerMotorista').show();" />
 				<p:commandLink value="Novo Semana"
 					actionListener="#{semanaController.prepararAdicionarSemana}"
-					update=":addsem:infosSemana"
+					update=""
 					oncomplete="PF('dialogGerSemana').show();" />
 			</h:form>
 			<h:outputLink
@@ -45,7 +45,7 @@
 						<h:outputText value="#{resumo1.divida}" />
 					</p:column>
 					<p:column headerText="Semana">
-						<h:outputText value="#{resumo1.semana}" />
+						<h:outputText value="" />
 					</p:column>
 					<p:column headerText="Devolução">
 						<h:outputText value="#{resumo1.devolucao}" />
@@ -56,7 +56,7 @@
 						</f:facet>
 						<p:commandButton
 							actionListener="#{resumoController.prepararAlterarResumo}"
-							value="Alterar" update=":addmoto:infosSemana"
+							value="Alterar" update=""
 							oncomplete="PF('dialogGerResumo').show();" />
 					</p:column>
 					<p:column>
@@ -92,7 +92,7 @@
 						<h:outputText value="#{resumo2.adiantamento}" />
 					</p:column>
 					<p:column headerText="TOTAL">
-						<h:outputText value="#{resumo2.semana}" />
+						<h:outputText value="" />
 					</p:column>
 					<p:column>
 						<f:facet name="header">
@@ -100,7 +100,7 @@
 						</f:facet>
 						<p:commandButton
 							actionListener="#{semanaController.prepararAlterarSemana}"
-							value="Alterar" update=":addmoto:infosSemana"
+							value="Alterar" update=""
 							oncomplete="PF('dialogGerSemana').show();" />
 					</p:column>
 					<p:column>

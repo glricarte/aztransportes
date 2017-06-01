@@ -31,11 +31,11 @@ private String semana;
 private Date salvo;
 
 
-public Semana(long id, String producao,
+public Semana( String producao,
 		String aluguel, String desconto,String batida,
 		String multa,String adiantamento, String semana, Date salvo) {
 	
-this.id = id;
+
 this.producao = producao;
 this.aluguel = aluguel;
 this.desconto = desconto;

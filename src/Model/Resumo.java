@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 
 @SuppressWarnings("unused")
@@ -20,12 +21,13 @@ public class Resumo implements Serializable {
 private long id;
 private String devolucao ;
 private String divida;
-private String semana;
 private String deposito;
 private Date salvo;
 @ManyToOne(optional = false)
 @JoinColumn(name = "cpf", referencedColumnName = "cpf")
 private Motorista motorista;
+@OneToOne
+private Semana detalhes;
 
 public Motorista getMotorista() {
 	return motorista;
@@ -35,12 +37,11 @@ public void setMotorista(Motorista motorista) {
 	this.motorista = motorista;
 }
 
-public Resumo(long id, String devolucao,
-		String divida, String semana, String deposito, Date salvo) {
-this.id = id;
+public Resumo(String devolucao,
+		String divida, String deposito, Date salvo) {
+
 this.devolucao = devolucao;
 this.divida = divida;
-this.semana = semana;
 this.deposito = deposito;
 this.salvo=salvo;
 }
@@ -78,14 +79,6 @@ public void setDivida(String divida) {
 }
 
 
-public String getSemana() {
-	return semana;
-}
-
-
-public void setSemana(String semana) {
-	this.semana = semana;
-}
 
 
 public String getDeposito() {
@@ -105,6 +98,14 @@ public Date getSalvo() {
 
 public void setSalvo(Date salvo) {
 	this.salvo = salvo;
+}
+
+public Semana getDetalhes() {
+	return detalhes;
+}
+
+public void setDetalhes(Semana detalhes) {
+	this.detalhes = detalhes;
 }
 
 

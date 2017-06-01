@@ -1,9 +1,13 @@
 package com.memorynotfound.controller;
 
+import java.util.Date;
+
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
+import Dao.HibernateUtil;
 import Model.Autorizacao;
 import Model.Motorista;
 import Model.Resumo;
@@ -30,32 +34,47 @@ public class main {
 		}
 
 		Motorista moto1 = new Motorista("00","00","00","00",true);
+		Motorista moto2 = new Motorista("01","01","01","01",true);
 		Usuario user1 = new Usuario("00","00",true); 
+		Usuario user2 = new Usuario("01","01",true); 
 		Autorizacao aut1 = new Autorizacao("ROLE_ADMIN");
 		
-	    user1.
-	        student1.setUniversity(university);
-	        student2.setUniversity(university);
-	        student3.setUniversity(university);
-	 
-	 
-	        Session session = HibernateUtil.getSessionFactory().openSession();
+	    Semana sem1 = new Semana("00","00","00","00","00","00","00",new Date());
+	    Semana sem2 = new Semana("01","01","01","01","01","01","01",new Date());
+	    Semana sem3 = new Semana("03","01","01","01","01","01","01",new Date());
+
+	   Resumo res1 = new Resumo("99","00","00",new Date());
+	    
+	    user1.addAutorizacao(aut1);
+	    user2.addAutorizacao(aut1);
+	     
+	    user1.setMotorista(moto1);
+	    user2.setMotorista(moto2);	    
+	    
+	    sem1.setMotorista(moto1);
+	    sem2.setMotorista(moto1);
+        sem3.setMotorista(moto2);
+        
+        res1.setMotorista(moto1);
+        res1.setDetalhes(sem1);
+        
+        
+	    Session session = HibernateUtil.getSessionFactory().openSession();
 	        session.beginTransaction();
-	 
-	        session.persist(university);
-	        session.persist(student1);
-	        session.persist(student2);
-	        session.persist(student3);
-	         
-	        List<Student> students = (List<Student>)session.createQuery("from Student ").list();
-	        for(Student s: students){
-	            System.out.println("Details : "+s);
-	            System.out.println("Student University Details: "+s.getUniversity());
-	        }
-	         
-	        session.getTransaction().commit();
+	        
+	        session.persist(aut1);
+	        session.persist(moto1);
+	        session.persist(user1);
+	        session.persist(moto2);
+	      session.persist(user2);
+	      session.persist(sem1);
+	      session.persist(sem2);
+	      session.persist(sem3);
+	      
+	      session.persist(res1);
+	       session.getTransaction().commit();
 	        session.close();  
 	    }
 		
-	}
+	
 }

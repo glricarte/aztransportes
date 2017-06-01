@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<body>
+    <ui:composition>   
+     <h:form>     
+  <a href="./logout" style="float: right">Sair</a>
+
+								  SELECIONE A SEMANA:
+                
+								<h:selectOneMenu id="advanced"
+									value="#{usuarioController.semana_selecionada}"
+									style="width:175px" effect="fade" filter="true"
+									filterMatchMode="startsWith">
+									<f:ajax listener="#{usuarioController.Atualizadados()}"
+										render=":tab1:tabela1 :tab2:tabela2" event="click" />
+
+									
+
+									<f:selectItems value="#{usuarioController.semanas}" />
+
+
+								</h:selectOneMenu>
+
+							
+							<p:separator />
+   </h:form>
+    </ui:composition>
+</body>
+</html>

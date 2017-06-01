@@ -7,6 +7,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,6 +16,7 @@ import org.springframework.security.core.userdetails.User;
 import Dao.ResumoDao;
 import Dao.ResumoDaoImp;
 import Model.Resumo;
+import Model.Semana;
 
 @ManagedBean
 @SessionScoped
@@ -25,11 +27,11 @@ private DataModel<Resumo> listaResumos;
 String username;
 
 
-public DataModel<Resumo> getListarResumos() {
+public List<Resumo> getListarResumos( List<Semana> semana) {
 username=((SecurityContext) SecurityContextHolder.getContext()).getAuthentication().getName();
-List<Resumo> lista = new ResumoDaoImp().list(username);
+List<Resumo> lista = new ResumoDaoImp().list(username,semana);
 listaResumos = new ListDataModel<Resumo>(lista);
-return listaResumos;
+return lista;
 }
  
 public Resumo getResumo() {
