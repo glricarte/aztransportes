@@ -181,7 +181,7 @@
 		</repository>
 	</repositories>
 	<properties>
-		<spring.version>4.2.1.RELEASE</spring.version>
+		<spring.version>4.3.21.RELEASE</spring.version>
 		<security.version>4.0.3.RELEASE</security.version>
 		<jdk.version>1.7</jdk.version>
 	</properties>
